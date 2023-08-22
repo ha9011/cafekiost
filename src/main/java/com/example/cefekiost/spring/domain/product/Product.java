@@ -3,6 +3,7 @@ package com.example.cefekiost.spring.domain.product;
 import com.example.cefekiost.spring.domain.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -27,4 +28,12 @@ public class Product extends BaseEntity {
 
     private int price;
 
+    @Builder
+    private Product(ProductType productType, ProductSellingStatus productSellingStatus, String productNumber, String name, int price) {
+        this.type = productType;
+        this.sellingStatus = productSellingStatus;
+        this.productNumber = productNumber;
+        this.name = name;
+        this.price = price;
+    }
 }

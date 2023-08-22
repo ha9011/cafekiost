@@ -21,8 +21,7 @@ public class ProductResponse {
     private int price;
 
     @Builder
-    private ProductResponse(Long id, ProductType productType, ProductSellingStatus productSellingStatus, String productNumber, String name, int price) {
-        this.id = id;
+    private ProductResponse( ProductType productType, ProductSellingStatus productSellingStatus, String productNumber, String name, int price) {
         this.productType = productType;
         this.productSellingStatus = productSellingStatus;
         this.productNumber = productNumber;
@@ -32,7 +31,6 @@ public class ProductResponse {
 
     public static ProductResponse of(Product product) {
         return ProductResponse.builder()
-                .id(product.getId())
                 .name(product.getName())
                 .productSellingStatus(product.getSellingStatus())
                 .productNumber(product.getProductNumber())
