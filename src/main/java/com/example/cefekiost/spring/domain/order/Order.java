@@ -5,6 +5,7 @@ import com.example.cefekiost.spring.domain.orderProduct.OrderProduct;
 import com.example.cefekiost.spring.domain.product.Product;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 @Entity
 @Table(name = "orders")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 public class Order extends BaseEntity {
 
     @Id
@@ -40,6 +42,7 @@ public class Order extends BaseEntity {
                 .collect(Collectors.toList());
     }
 
+    // test! (2)
     public static Order create(List<Product> products, LocalDateTime registeredDateTime) {
         return new Order(products, registeredDateTime);
     }
@@ -49,5 +52,4 @@ public class Order extends BaseEntity {
                 .mapToInt(Product::getPrice)
                 .sum();
     }
-
 }

@@ -63,6 +63,7 @@ class ProductRepositoryTest {
     }
 
     @Test
+    @DisplayName("주문 선택한 상품 리스트 조회")
     public void findAllByProductNumberIn() throws Exception{
         //given
         Product product1 = Product.builder()
@@ -92,7 +93,12 @@ class ProductRepositoryTest {
         List<Product> products = productRepository.findAllByProductNumberIn(List.of("001", "002"));
 
         //then
-        assertThat(products).hasSize(2);
+        assertThat(products).hasSize(2)
+                .extracting("productNumber", "name", "sellingStatus")
+                .containsExactlyInAnyOrder(
+                        tuple("001", "아메리카노", SELLING),
+                        tuple("002", "카페라떼", HOLD)
+                );
     }
 
 }
