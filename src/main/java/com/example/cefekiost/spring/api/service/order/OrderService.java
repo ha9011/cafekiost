@@ -70,7 +70,7 @@ public class OrderService {
 
     private static List<String> extractStockProductNumbers(List<Product> products) {
         List<String> stockProductNumbers = products.stream()
-                .filter(product -> ProductType.containsStockType(product.getType()))
+                .filter(product -> ProductType.containsStockType(product.getProductType()))
                 .map(Product::getProductNumber)
                 .collect(Collectors.toList());
         return stockProductNumbers;
