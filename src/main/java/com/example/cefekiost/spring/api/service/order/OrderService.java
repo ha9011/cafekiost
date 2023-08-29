@@ -1,7 +1,8 @@
 package com.example.cefekiost.spring.api.service.order;
 
 
-import com.example.cefekiost.spring.api.service.order.request.OrderCreateRequest;
+import com.example.cefekiost.spring.api.controller.order.request.OrderCreateRequest;
+import com.example.cefekiost.spring.api.service.order.request.OrderCreateServiceRequest;
 import com.example.cefekiost.spring.api.service.order.response.OrderResponse;
 import com.example.cefekiost.spring.domain.order.Order;
 import com.example.cefekiost.spring.domain.order.OrderRepository;
@@ -27,7 +28,7 @@ public class OrderService {
     private final ProductRepository productRepository;
     private final OrderRepository orderRepository;
     private final StockRepository stockRepository;
-    public OrderResponse createOrder(OrderCreateRequest request, LocalDateTime registeredDateTime) {
+    public OrderResponse createOrder(OrderCreateServiceRequest request, LocalDateTime registeredDateTime) {
         List<String> productNumbers = request.getProductNumbers();
         System.out.println("productNumbers : " + productNumbers);
         // product

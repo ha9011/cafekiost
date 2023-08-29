@@ -1,6 +1,6 @@
 package com.example.cefekiost.spring.api.service.order;
 
-import com.example.cefekiost.spring.api.service.order.request.OrderCreateRequest;
+import com.example.cefekiost.spring.api.controller.order.request.OrderCreateRequest;
 import com.example.cefekiost.spring.api.service.order.response.OrderResponse;
 import com.example.cefekiost.spring.domain.order.OrderRepository;
 import com.example.cefekiost.spring.domain.orderProduct.OrderProductRepository;
@@ -13,10 +13,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -25,9 +23,7 @@ import static com.example.cefekiost.spring.domain.product.ProductSellingStatus.*
 import static com.example.cefekiost.spring.domain.product.ProductType.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.api.InstanceOfAssertFactories.type;
 import static org.assertj.core.groups.Tuple.tuple;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest // 이놈은 트랜잭션이 안걸려 있고, @DataJpaTest에는 트랜잭션이 걸려있음
 @ActiveProfiles("test")
@@ -73,7 +69,7 @@ class OrderServiceTest {
 
         LocalDateTime orderRegisteredDateTime = LocalDateTime.now();
         //when
-        OrderResponse orderResponse = orderService.createOrder(request,orderRegisteredDateTime);
+        OrderResponse orderResponse = orderService.createOrder(request.toServiceRequest(),orderRegisteredDateTime);
 
         //then
         // red -> green -
@@ -107,7 +103,7 @@ class OrderServiceTest {
 
         LocalDateTime orderRegisteredDateTime = LocalDateTime.now();
         //when
-        OrderResponse orderResponse = orderService.createOrder(request,orderRegisteredDateTime);
+        OrderResponse orderResponse = orderService.createOrder(request.toServiceRequest(),orderRegisteredDateTime);
 
         //then
         // red -> green -
@@ -146,7 +142,7 @@ class OrderServiceTest {
 
         LocalDateTime orderRegisteredDateTime = LocalDateTime.now();
         //when
-        OrderResponse orderResponse = orderService.createOrder(request,orderRegisteredDateTime);
+        OrderResponse orderResponse = orderService.createOrder(request.toServiceRequest(),orderRegisteredDateTime);
 
         //then
         // red -> green -
@@ -198,7 +194,7 @@ class OrderServiceTest {
         //when
         //OrderResponse orderResponse = orderService.createOrder(request,orderRegisteredDateTime);
 
-        assertThatThrownBy(()->orderService.createOrder(request,orderRegisteredDateTime))
+        assertThatThrownBy(()->orderService.createOrder(request.toServiceRequest(),orderRegisteredDateTime))
                 .isInstanceOf(IllegalArgumentException.class)
                         .hasMessage("재고가 부족한 상품이 있습니다.");
 
