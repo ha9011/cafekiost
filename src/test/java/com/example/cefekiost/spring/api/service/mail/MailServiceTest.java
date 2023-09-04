@@ -53,8 +53,8 @@ class MailServiceTest {
                 .thenReturn( true );
 
         // GIVEN 절이라 좀더 명확하긴함 BDD 스타일에 맞게 mockito를 상속받아서 만들었다. 방법은 똑같음
-        BDDMockito.given(mailSendClient.sendEmail(any(String.class),any(String.class),any(String.class),any(String.class)))
-                .willReturn( true );
+//        BDDMockito.given(mailSendClient.sendEmail(any(String.class),any(String.class),any(String.class),any(String.class)))
+//                .willReturn( true );
         //        // spy 전용 stubbing
 //        doReturn(true)
 //                .when(mailSendClient)

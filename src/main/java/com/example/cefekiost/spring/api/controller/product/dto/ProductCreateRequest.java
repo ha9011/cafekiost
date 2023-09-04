@@ -12,6 +12,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
 public class ProductCreateRequest {
 
     @NotNull(message = "상품 타입은 필수입니다.")

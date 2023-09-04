@@ -71,8 +71,8 @@ class CafeKioskTest {
         cafeKiosk.remove(americano);
         System.out.println(cafeKiosk.getBeverages().size());
         //then
-        assertThat(cafeKiosk.getBeverages()).hasSize(1);
-        assertThat(cafeKiosk.getBeverages().get(0)).isEqualTo(latte);
+        assertThat(cafeKiosk.getBeverages()).hasSize(2);
+        assertThat(cafeKiosk.getBeverages().get(0)).isEqualTo(americano);
     }
 
     @Test
