@@ -42,7 +42,5 @@ public class ProdcutReponse {
                 .name(product.getName())
                 .price(product.getPrice())
                 .build();
-
-
     };
 }
