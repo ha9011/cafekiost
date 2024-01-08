@@ -1,0 +1,23 @@
+### 주문 신규 생성
+POST localhost:8080/api/v1/orders/new
+Content-Type: application/json
+
+{
+  "productNumbers": [
+    "001",
+    "002"
+  ]
+}
+
+
+
+### 주문 신규 생성 <- ### 으로 다음 API 호출과 구분
+POST localhost:8080/api/v1/orders/new
+Content-Type: application/json
+
+{
+  "productNumbers": [
+    "001",
+    "002"
+  ]
+}

@@ -1,15 +1,15 @@
 package sample.cafekiosk.spring.api.service.product.response;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 import sample.cafekiosk.spring.domain.product.Product;
 import sample.cafekiosk.spring.domain.product.ProductSellingStatus;
 import sample.cafekiosk.spring.domain.product.ProductType;
 
 @Getter
-public class ProdcutReponse {
+@ToString
+public class ProductReponse {
     private Long id;
 
     private String productNumber;
@@ -24,7 +24,7 @@ public class ProdcutReponse {
     private int price;
 
     @Builder
-    private ProdcutReponse(Long id, String productNumber, ProductType productType, ProductSellingStatus sellingStatus, String name, int price) {
+    private ProductReponse(Long id, String productNumber, ProductType productType, ProductSellingStatus sellingStatus, String name, int price) {
         this.id = id;
         this.productNumber = productNumber;
         this.productType = productType;
@@ -33,8 +33,8 @@ public class ProdcutReponse {
         this.price = price;
     }
 
-    public static ProdcutReponse of(Product product) {
-        return ProdcutReponse.builder()
+    public static ProductReponse of(Product product) {
+        return ProductReponse.builder()
                 .id(product.getId())
                 .productNumber(product.getProductNumber())
                 .productType(product.getType())
