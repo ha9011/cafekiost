@@ -33,7 +33,7 @@ public class Order extends BaseEntity {
     private LocalDateTime registeredDataTime;
 
     // mappedBy = "order" : 상대쪽 필드, 연관관계 주인 설정
-    // cascade = CascadeType.ALL : orderProduct가 삭제, 변경되면 영향받음
+    // cascade = CascadeType.ALL : orderProduct가 삭제, 변경되면 영향받음 //
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderProduct> orderProduct = new ArrayList<>();
 

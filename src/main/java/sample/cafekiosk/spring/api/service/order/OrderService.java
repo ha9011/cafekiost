@@ -27,6 +27,10 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final StockRepository stockRepository;
 
+    /*
+    *  재고 감소 -> 동시성을 고민해봐야함
+    *  lock 개념 도입 // optimistic lock // pessimistic lock
+    * */
     public OrderResponse createOrder(OrderCreateReq req, LocalDateTime registeredDateTime) {
         List<String> productNumbers = req.getProductNumbers();
         List<Product> products = getDuplicateProducts(productNumbers);
@@ -61,7 +65,6 @@ public class OrderService {
             stock.deductQuantity(quantity);
         }
 
-        List<Stock> stockss = stockRepository.findAll();
         Order order = Order.create(products, registeredDateTime);
         Order savedOrder = orderRepository.save(order);
 

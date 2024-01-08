@@ -1,5 +1,6 @@
 package sample.cafekiosk.spring.api.service.order;
 
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,6 +27,7 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+//@Transactional
 @ActiveProfiles("test")
 class OrderServiceTest {
 

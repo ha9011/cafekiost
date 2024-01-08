@@ -16,7 +16,6 @@ public class ProductReponse {
 
     private ProductType productType;
 
-
     private ProductSellingStatus sellingStatus ;
 
     private String name;
