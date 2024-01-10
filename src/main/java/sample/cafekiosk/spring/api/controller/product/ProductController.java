@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import sample.cafekiosk.spring.api.ApiResponse;
 import sample.cafekiosk.spring.api.controller.product.request.CreateProductRequest;
 import sample.cafekiosk.spring.api.service.product.ProductService;
 import sample.cafekiosk.spring.api.service.product.response.ProductReponse;
@@ -19,15 +20,16 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/api/v1/products/new")
-    public ProductReponse createProduct(@RequestBody @Valid CreateProductRequest req){
+    public ApiResponse<ProductReponse> createProduct(@RequestBody @Valid CreateProductRequest req){
 
-        return productService.createProduct(req);
+        return ApiResponse.ok(productService.createProduct(req));
 
     }
 
     @GetMapping("/api/v1/products/selling")
-    public List<ProductReponse> getSellingProducts(){
-        return productService.getSellingProducts();
+    public ApiResponse<List<ProductReponse>> getSellingProducts(){
+
+        return ApiResponse.ok(productService.getSellingProducts());
     }
 
 

@@ -15,16 +15,16 @@ import sample.cafekiosk.spring.domain.product.ProductType;
 @NoArgsConstructor
 public class CreateProductRequest {
 
-    @NotNull
+    @NotNull(message = "상품타입을 입력해주세요.")
     private ProductType type;
 
-    @NotNull
+    @NotNull(message = "상품판매상태를 입력해주세요.")
     private ProductSellingStatus sellingStatus ;
 
-    @NotNull
+    @NotNull(message = "상품명을 입력해주세요.")
     private String name;
 
-    @Positive
+    @Positive(message = "상품가격을 0원이상으로 입력해주세요.")
     private int price;
 
     @Builder

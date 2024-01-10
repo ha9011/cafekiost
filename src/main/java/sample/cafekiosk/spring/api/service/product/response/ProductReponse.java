@@ -2,6 +2,7 @@ package sample.cafekiosk.spring.api.service.product.response;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import sample.cafekiosk.spring.domain.product.Product;
 import sample.cafekiosk.spring.domain.product.ProductSellingStatus;
@@ -9,6 +10,7 @@ import sample.cafekiosk.spring.domain.product.ProductType;
 
 @Getter
 @ToString
+@NoArgsConstructor
 public class ProductReponse {
     private Long id;
 

@@ -3,6 +3,7 @@ package sample.cafekiosk.spring.api.service.order.response;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import sample.cafekiosk.spring.api.service.product.response.ProductReponse;
 import sample.cafekiosk.spring.domain.order.Order;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @ToString
+@NoArgsConstructor
 public class OrderResponse {
     private long id;
 
